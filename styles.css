@@ -255,7 +255,7 @@ section {
 
 .guild-stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -342,8 +342,48 @@ section {
 
 .roster-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.roster-grid > *:nth-child(5) {
+    grid-column: 1;
+    grid-row: 2;
+    transform: translateX(50%);
+}
+
+.roster-grid > *:nth-child(6) {
+    grid-column: 2;
+    grid-row: 2;
+    transform: translateX(50%);
+}
+
+.roster-grid > *:nth-child(7) {
+    grid-column: 3;
+    grid-row: 2;
+    transform: translateX(50%);
+}
+
+/* Center guild leadership to align with second row of raiders */
+.roster-grid:first-of-type {
+    justify-content: center;
+}
+
+.roster-grid:first-of-type > *:nth-child(1) {
+    grid-column: 1;
+    transform: translateX(50%);
+}
+
+.roster-grid:first-of-type > *:nth-child(2) {
+    grid-column: 2;
+    transform: translateX(50%);
+}
+
+.roster-grid:first-of-type > *:nth-child(3) {
+    grid-column: 3;
+    transform: translateX(50%);
 }
 
 .roster-member {
@@ -352,11 +392,21 @@ section {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .roster-member:hover {
     transform: translateY(-5px);
+}
+
+/* Fix hover effects for items with translateX transforms */
+.roster-grid > *:nth-child(5):hover,
+.roster-grid > *:nth-child(6):hover,
+.roster-grid > *:nth-child(7):hover,
+.roster-grid:first-of-type > *:nth-child(1):hover,
+.roster-grid:first-of-type > *:nth-child(2):hover,
+.roster-grid:first-of-type > *:nth-child(3):hover {
+    transform: translateY(-5px) translateX(50%);
 }
 
 .member-avatar {
@@ -436,6 +486,11 @@ section {
 
 .class-tag.shaman {
     background: #0070de;
+    color: #fff;
+}
+
+.class-tag.warlock {
+    background: #9482c9;
     color: #fff;
 }
 
@@ -525,10 +580,34 @@ section {
 }
 
 .contact-form {
-    background: rgba(255, 255, 255, 0.05);
     padding: 2rem;
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.application-section {
+    text-align: center;
+    padding: 2rem 0;
+    outline: none;
+}
+
+.application-section h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.application-section p {
+    color: #ccc;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.application-section .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    outline: none;
 }
 
 .form-group {
